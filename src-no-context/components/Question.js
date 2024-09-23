@@ -1,10 +1,6 @@
 // import Options from "./Options";
 
-import { useQuiz } from "../context/QuizContext";
-
-function Question({ children }) {
-  const { question } = useQuiz();
-
+function Question({ question, children }) {
   return (
     <div>
       <h4>{question.question}</h4>
