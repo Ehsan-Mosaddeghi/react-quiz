@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
+import fakeQuestions from "../data/questions.json";
 
 const QuizContext = createContext();
 
@@ -90,10 +91,7 @@ function QuizProvider({ children }) {
   const question = questions.at(index);
 
   useEffect(function () {
-    fetch("http://localhost:8000/questions")
-      .then((res) => res.json())
-      .then((data) => dispatch({ type: "dataReceived", payload: data }))
-      .catch((err) => dispatch({ type: "dataFailed" }));
+    dispatch({ type: "dataReceived", payload: fakeQuestions.questions });
   }, []);
 
   return (
